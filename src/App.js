@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Dashboard, FlashSale, Login, Registrasi } from "./pages";
+import { Blog, Dashboard, FlashSale, Login, Registrasi, Testimonial } from "./pages";
 
 function App() {
   return (
@@ -8,6 +8,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/sale" element={<FlashSale />} />
+        <Route path="/testimonials" element={<Testimonial />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Daftar" element={<Registrasi />} />
       </Routes>

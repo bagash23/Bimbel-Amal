@@ -1,8 +1,8 @@
-import React, { useEffect, useState, createRef } from "react";
+import React, { useState, createRef } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Menu, Transition } from "@headlessui/react";
 import "../../App.css";
-import { Star, ArrowForwardSharp } from "@mui/icons-material";
+import { ArrowForwardSharp } from "@mui/icons-material";
 import { createPopper } from "@popperjs/core";
 
 function classNames(...classes) {
@@ -130,7 +130,7 @@ function Navbar(color) {
                     onClick={(e) => e.preventDefault()}
                   >
                     Lainnya
-                    <ArrowForwardSharp sx={{fontSize: 12, marginLeft: 12}} />
+                    <ArrowForwardSharp sx={{ fontSize: 12, marginLeft: 12 }} />
                   </a>
                 </div>
               </li>
@@ -314,136 +314,97 @@ function Navbar(color) {
   );
 }
 
-function FlashSale() {
-  const [fadeProp, setFadeProp] = useState({
-    fade: "Fade-in",
-  });
-
-  useEffect(() => {
-    const timeOut = setInterval(() => {
-      if (fadeProp.fade === "fade-in") {
-        setFadeProp({
-          fade: "fade-out",
-        });
-      } else {
-        setFadeProp({
-          fade: "fade-in",
-        });
-      }
-    }, 1000);
-    return () => clearInterval(timeOut);
-  }, [fadeProp]);
-
-  const flashSale = [
+function Testimonial() {
+  const dataTesti = [
     {
       id: 1,
-      title: "Build Your Personal Branding on Socmed & Boost Your Career",
-      thumbnile:
-        "https://buildwithangga.com/storage/assets/thumbnails/o7dosm6h-Thumbnail%20BWAPB.png",
-      promo: "Rp.50.000",
-      price_real: "Rp.199.000",
-      Rate: "931",
-      guru: "https://assets.pikiran-rakyat.com/crop/658x34:1741x1051/x/photo/2021/12/20/2821040788.jpg",
+      nama: "Albert Avellino",
+      position: "Content Publisher - Bank Central Asia",
+      message:
+        "Sesulit apapun pelajaran IPA, tapi karena cara penyampaian di Zenius itu jelas banget dan menarik, ilmu bisa terserap dengan gampang. Sebagai animator, gue juga harus bisa menyampaikan cerita atau informasi dengan menyenangkan. Gue belajar banyak dari Zenius buat bisa menjelaskan sesuatu yang sulit jadi lebih mudah dimengerti.",
+      avatar:
+        "https://www.zenius.net/_next/image/?url=https%3A%2F%2Fwww.zenius.net%2Fwp-content%2Fuploads%2F2020%2F08%2FAlbert-Avellino-300x300-1.jpg&w=128&q=75",
     },
-
     {
       id: 2,
-      title: "Full-Stack Web Developer",
-      thumbnile:
-        "https://buildwithangga.com/storage/assets/thumbnails/a9y2g6k0-2Thumbnail.png",
-      promo: "Rp.200.000",
-      price_real: "Rp.650.000",
-      Rate: "1.000",
-      guru: "	https://buildwithangga.com/storage/assets/images/avatars/galih-pratama-buildwithangga.png",
+      nama: "Dara Nursafira Rasyid",
+      position: "Risk Advisor - Deloitte",
+      message:
+        "Berkat Zenius, dunia gue berasa langsung cerah gitu. Zenius bener-bener ngajarin gue banyak tentang hal-hal yang terjadi di dunia ini. Gue belajar gimana caranya mikir yang bener. Gue juga jadi bisa jelasin banyak hal secara logis dan saintifik. It’s not about how to answer things, but the proccess of coming up with the answers.",
+      avatar:
+        "https://www.zenius.net/_next/image/?url=https%3A%2F%2Fwww.zenius.net%2Fwp-content%2Fuploads%2F2020%2F11%2FDara-Nursafira-Rasyid.jpg&w=128&q=75",
     },
-
     {
       id: 3,
-      title:
-        "UX Brainstorming dengan InVision App",
-      thumbnile:
-        "	https://buildwithangga.com/storage/assets/thumbnails/ux_brainstorm_thumb.png",
-      promo: "Rp.200.000",
-      price_real: "Rp.650.000",
-      Rate: "17.000",
-      guru: "https://buildwithangga.com/storage/assets/images/avatars/galih-pratama-buildwithangga.png",
+      nama: "Adli Wafi Jabbar",
+      position: "Dokter Umum - RSIJ Cempaka Putih",
+      message:
+        "Saya tidak pernah ikut kursus di luar hanya dengan Zenius saja sudah lebih dari cukup. Nilai saya selalu menjadi 3 terbaik dikelas dari kelas 10 sampai kelas 12, sampai saya masuk FK tanpa tes karena nilai rapot saya diatas rata rata. Zenius itu program yang membantu saya meraih cita-cita saya menjadi dokter.",
+      avatar:
+        "https://www.zenius.net/_next/image/?url=https%3A%2F%2Fwww.zenius.net%2Fwp-content%2Fuploads%2F2020%2F11%2FAdli-Wafi-Jabbar.jpg&w=128&q=75",
+    },
+    {
+      id: 4,
+      nama: "Karinta Ariani Setiaputri",
+      position: "SEO Content Writer - Hello Sehat",
+      message:
+        "Sebagai seorang SEO Content Writer, Zenius ngajarin aku gimana caranya menyampaikan/menjelaskan sesuatu dengan cara dan bahasa yang gampang dimengerti orang. Zenius itu bukan cuma tempat belajar yang seru, tapi juga bantu banget buat ningkatin pemahaman dasar tentang suatu hal.",
+      avatar:
+        "https://www.zenius.net/_next/image/?url=https%3A%2F%2Fwww.zenius.net%2Fwp-content%2Fuploads%2F2020%2F11%2FKarinta-Ariani-Setiaputri.jpg&w=128&q=75",
+    },
+    {
+      id: 5,
+      nama: "Mochamad Rifki",
+      position: "Staff Kementerian Perencanaan Pembangunan Nasional",
+      message:
+        "Saya bersyukur sekali bisa kenal Zenius. Berkat Zenius, muncul keinginan dari diri saya untuk bisa berinovasi, menyelesaikan masalah disekitar, dan berkontribusi dalam banyak hal untuk menata masa depan.",
+      avatar:
+        "https://www.zenius.net/_next/image/?url=https%3A%2F%2Fwww.zenius.net%2Fwp-content%2Fuploads%2F2020%2F11%2FMochamad-Rifki.jpg&w=128&q=75",
+    },
+    {
+      id: 6,
+      nama: "Mohammad Rimba Putra",
+      position: "Risk Analysis Unit - HSBC Commercial Banking",
+      message:
+        "Saya mulai menggunakan Zenius 10 tahun lalu. Dengerin penjelasan di Zenius itu enak banget, kayak kita diterangin langsung sama tutornya. Proses belajarnya kayak cerita, saya juga jadi semangat dan penasaran ngikutinnya.",
+      avatar:
+        "https://www.zenius.net/_next/image/?url=https%3A%2F%2Fwww.zenius.net%2Fwp-content%2Fuploads%2F2020%2F11%2FMohammad-Rimba-Putra.jpg&w=128&q=75",
     },
   ];
-
   return (
     <>
       <Navbar />
-      <div className="justify-center items-center lg:my-5 lg:flex-col">
-        <h1 className="font-bold text-center lg:text-2xl hidden lg:block">
-          Flash Sale
+      <div className="items-center justify-center my-5">
+        <h1 className="text-black font-bold lg:text-4xl text-center ">
+          Testimonial
         </h1>
-        <p className="font-normal text-center lg:text-lg hidden lg:block lg:mt-4 lg:w-[20%] mx-auto">
-          Belajar dengan mentor expert dengan harga yang lebih terjangkau
-          😎
+        <p className="font-normal text-center lg:text-lg lg:block mx-5 lg:mt-4 lg:w-[30%] mx-auto">
+          Gabung bersama kami demi membangun keahlian dan juga saling berbagi.
         </p>
       </div>
-      <div className="lg:ml-20 justify-center flex-col lg:mt-20 px-4 py-3">
-        <h2 className="text-primary font-semibold lg:text-xl text-xl">
-          Best Sale Ever
-        </h2>
-        <h1 className="text-black font-bold lg:text-4xl text-xl lg:w-[25%] w-[70%]">
-          Belajar Jadi Lebih Mudah & Asyik
-        </h1>
-        <div className="lg:flex-row flex-col w-auto lg:w-50 lg:justify-evenly lg:grid-cols-3 grid">
-          {flashSale.map((item) => {
-            return (
-              <div className="bg-white lg:px-4 lg:py-5 shadow-md lg:w-4/5 lg:mx-5 lg:my-5 rounded-lg mb-5 mt-5 py-5 px-4 lg:flex-col">
-                <div className="flex lg:flex-col">
-                  <img
-                    src={item.thumbnile}
-                    alt="roadmap-1"
-                    className="lg:w-screen w-20 object-cover rounded-lg mr-5"
-                  />
-                  <div className="flex-col">
-                    <h1 className="text-black font-bold lg:text-2xl lg:py-3 py-3 lg:grid-cols grid">
-                      {item.title}
-                    </h1>
-                    <div className="flex flex-row items-center">
-                      <h3 className={fadeProp.fade}>{item.price_real}</h3>
-                      <h3 className="text-red1 font-semibold ml-2">
-                        {item.promo}
-                      </h3>
-                    </div>
-                    <div className="flex-row lg:flex hidden mt-5 justify-between items-center">
-                      <div className="flex-row flex">
-                        <Star sx={{ color: "#FFB200" }} />
-                        <Star sx={{ color: "#FFB200" }} />
-                        <Star sx={{ color: "#FFB200" }} />
-                        <Star sx={{ color: "#FFB200" }} />
-                        <Star sx={{ color: "#FFB200" }} />
-                        <h3 className="px-3">{( item.Rate )}</h3>
-                      </div>
-                      <img
-                        src="https://www.buildwithangga.com/themes/front/images/ic_lv_hard.svg"
-                        alt="koneksi"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="lg:hidden flex-row flex justify-between mt-5 items-center">
-                  <div className="flex-row flex">
-                    <Star sx={{ color: "#FFB200" }} />
-                    <Star sx={{ color: "#FFB200" }} />
-                    <Star sx={{ color: "#FFB200" }} />
-                    <Star sx={{ color: "#FFB200" }} />
-                    <Star sx={{ color: "#FFB200" }} />
-                    <h3 className="px-3">{( item.Rate )}</h3>
-                  </div>
-                  <img
-                    src={item.guru}
-                    className="w-7 h-7 rounded-full"
-                    alt="avatar"
-                  />
+      <div className="lg:flex-row lg:mx-10 flex-col w-auto lg:w-50 lg:justify-evenly lg:grid-cols-3 grid">
+        {dataTesti.map((item) => {
+          return (
+            <div className="bg-white lg:px-4 lg:py-5 shadow-md lg:w-4/5 lg:mx-5 lg:my-5 rounded-lg mb-5 mt-5 py-5 px-4 lg:flex-col">
+              <div className="flex lg:flex-row items-center">
+                <img
+                  src={item.avatar}
+                  alt="avatar-testi"
+                  className="lg:w-50 w-20 rounded-lg"
+                />
+                <div className="lg:mx-4 mx-3">
+                  <h1 className="text-black font-bold lg:text-lg lg:grid-cols grid">
+                    {item.nama}
+                  </h1>
+                  <h3 className="text-black font-semibold">{item.position}</h3>
                 </div>
               </div>
-            );
-          })}
-        </div>
+              <p className="text-black font-normal text-sm my-5">
+                {item.message}
+              </p>
+            </div>
+          );
+        })}
       </div>
       <footer class="lg:mx-4 mt-5 flex lg:block flex-col lg:py-5 lg:justify-center">
         <div class="mx-6 py-10 md:text-left">
@@ -550,4 +511,4 @@ function FlashSale() {
   );
 }
 
-export default FlashSale;
+export default Testimonial;
