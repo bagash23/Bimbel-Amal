@@ -4,6 +4,7 @@ import Dashboard from "./Menu/Dashboard";
 import FlashSale from "./Menu/FlashSale";
 import Testimonial from "./Menu/Testimonial";
 import Blog from "./Menu/Blog";
+import Katalog from "./Menu/Katalog";
 
 export {
     Login,
@@ -11,5 +12,6 @@ export {
     Dashboard,
     FlashSale,
     Testimonial,
-    Blog
+    Blog,
+    Katalog
 }
